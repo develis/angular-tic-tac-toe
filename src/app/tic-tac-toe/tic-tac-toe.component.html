@@ -1,0 +1,65 @@
+<div>
+    <h2>Tic Tac Toe</h2>
+
+    <!-- tela inicial -->
+    <div class="principal" *ngIf="show_beginScreen">
+        <a href="#" class="botao" (click)="gameStart()">
+            Start
+        </a>
+    </div><!-- fim tela inicial -->
+
+    <!-- tabuleiro -->
+    <div *ngIf="show_matrixScreen">
+        <ul>
+            <li class="kz-border-bottom kz-border-right" [class.kz-img-x]="show_X(0, 0)" [class.kz-img-o]="show_O(0, 0)"
+                [class.kz-cor-vitoria]="show_win(0, 0)" (click)="play(0, 0)"></li>
+            <li class="kz-border-bottom kz-border-right" [ngClass]="{ 
+                'kz-img-x': show_X(0, 1),
+                'kz-img-o': show_O(0, 1),
+                'kz-cor-vitoria': show_win(0, 1) }" (click)="play(0, 1)"></li>
+            <li class="kz-border-bottom" [ngClass]="{ 
+                'kz-img-x': show_X(0, 2),
+                'kz-img-o': show_O(0, 2),
+                'kz-cor-vitoria': show_win(0, 2) }" (click)="play(0, 2)"></li>
+            <li class="kz-border-bottom kz-border-right" [ngClass]="{ 
+                'kz-img-x': show_X(1, 0),
+                'kz-img-o': show_O(1, 0),
+                'kz-cor-vitoria': show_win(1, 0) }" (click)="play(1, 0)"></li>
+            <li class="kz-border-bottom kz-border-right" [ngClass]="{ 
+                'kz-img-x': show_X(1, 1),
+                'kz-img-o': show_O(1, 1),
+                'kz-cor-vitoria': show_win(1, 1) }" (click)="play(1, 1)"></li>
+            <li class="kz-border-bottom" [ngClass]="{ 
+                'kz-img-x': show_X(1, 2),
+                'kz-img-o': show_O(1, 2),
+                'kz-cor-vitoria': show_win(1, 2) }" (click)="play(1, 2)"></li>
+            <li class="kz-border-right" [ngClass]="{ 
+                'kz-img-x': show_X(2, 0),
+                'kz-img-o': show_O(2, 0),
+                'kz-cor-vitoria': show_win(2, 0) }" (click)="play(2, 0)"></li>
+            <li class="kz-border-right" [ngClass]="{ 
+                'kz-img-x': show_X(2, 1),
+                'kz-img-o': show_O(2, 1),
+                'kz-cor-vitoria': show_win(2, 1) }" (click)="play(2, 1)"></li>
+            <li [ngClass]="{ 
+                    'kz-img-x': show_X(2, 2),
+                    'kz-img-o': show_O(2, 2),
+                    'kz-cor-vitoria': show_win(2, 2) }" (click)="play(2, 2)"></li>
+            <li></li>
+        </ul>
+    </div><!-- fim tabuleiro -->
+
+    <!-- tela final -->
+    <div *ngIf="show_finalScreen">
+        <span>
+            <p *ngIf="which_player == 2">You won! =]</p>
+            <p *ngIf="which_player == 1">You lost... =[</p>
+            <p *ngIf="which_player == 0">It's a draw! =/</p>
+            <br />
+            <a href="#" class="botao" (click) = "new_game">
+                Play Again
+            </a>
+        </span>
+    </div><!-- fim tela final -->
+
+</div>
